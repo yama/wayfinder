@@ -565,19 +565,6 @@ class Wayfinder {
 		return $template;
 	}
 
-	function get_file_contents($filename) {
-		// Function written at http://www.nutt.net/2006/07/08/file_get_contents-function-for-php-4/#more-210
-		// Returns the contents of file name passed
-		if (!function_exists('file_get_contents')) {
-			$fhandle = fopen($filename, "r");
-			$fcontents = fread($fhandle, filesize($filename));
-			fclose($fhandle);
-		} else	{
-			$fcontents = file_get_contents($filename);
-		}
-		return $fcontents;
-	}
-	
 	function findTemplateVars($tpl) {
 		preg_match_all('~\[\+(.*?)\+\]~', $tpl, $matches);
 		$cnt = count($matches[1]);
